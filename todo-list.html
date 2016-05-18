@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+	<title>Joey | To Do List</title>
+	<!-- materialize css -->
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	 <!-- google fonts -->
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	 <!-- angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller="TodoListController as todoList">
+	<main>
+		<nav>
+    		<div class="nav-wrapper">
+      			<a href="#" class="brand-logo center">{{ rename }}</a>
+    		</div>
+ 		</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col s6">
+				<form>
+					<input ng-model="rename" placeholder="Name Your List: " id"rename" maxlength="40"></input>
+				</form>
+				<div class="row">
+					<div class="input-field col s6">
+						<form id="add-form" ng-submit="todoList.addTodo()">
+							<input ng-model="todoList.todoText" id="task" type="text" class="validate" id="input-field">
+							<label class="active" for="task">Task</label>
+							<button class="btn" type="submit">+</button>
+						</form>
+						<button ng-click="todoList.remove()" class="btn">Delete</button>
+					</div>
+				</div>
+				<span>{{ todoList.remaining }} of {{ todoList.todoItems.length }} remaining</span>
+				<ul>
+					<li ng-repeat="todo in todoList.todoItems">
+						<p>
+							<input type="checkbox" ng-model="todo.done" id="todoItem-{{ $index }}">
+							<label class="done-{{ todo.done }}" for="todoItem-{{ $index }}">{{ todo.name }}</label>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<footer class="page-footer">
+          <div class="footer">
+            <div class="container">
+            	<a class="grey-text text-lighten-4 center" href="#rename">Click Here to go Back up to Top!</a>
+            </div>
+          </div>
+        </footer>
+	</main>		
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<!-- materialize js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</body>
+</html>

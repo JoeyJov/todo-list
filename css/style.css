@@ -1,0 +1,22 @@
+#add-form {
+	display: inline;
+}
+
+.done-false {
+	color: black;
+}
+
+.done-true {
+	color: gray;
+	text-decoration: line-through;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
